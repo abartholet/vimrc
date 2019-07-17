@@ -1,6 +1,10 @@
 "------------------------------------------------"
 " Interface
 "------------------------------------------------"
+" No noise!
+set visualbell
+set t_vb=
+
 " Windows dimensions
 set lines=47
 set columns=110
