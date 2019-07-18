@@ -11,6 +11,42 @@ set nocompatible
 source ~/.vimrc.plugins
 
 "------------------------------------------------"
+" Commands and Functions
+"------------------------------------------------"
+" Use the :Wrap command to soft wrap text
+command! -nargs=* Wrap set wrap linebreak nolist
+
+function! StripTrailingWhitespace()
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l=line(".")
+  let c=col(".")
+  " do the business:
+  %s/\s\+$//e
+  " clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+
+" Goto definition of tag under the cursor ignoring case
+function! MatchCaseTag()
+  let ic=&ic
+  set noic
+  try
+    exe 'tjump ' . expand('<cword>')
+  finally
+     let &ic=ic
+  endtry
+endfunction
+
+" Create a directory if it doesn't exist
+function! CreateDir(dir)
+  if !isdirectory(a:dir)
+    call mkdir(a:dir,'p')
+  endif
+endfunction
+
+"------------------------------------------------"
 " General
 "------------------------------------------------"
 " Number of lines to remember
@@ -124,16 +160,22 @@ set ffs=unix,dos,mac
 "------------------------------------------------"
 " Swaps and Backups and Undos, Oh my!
 "------------------------------------------------"
-" Persistent Undo
+" Persistent undo
 set undofile
 
 " Store swap, backup and undo in a fixed location
 if has('win32') || has('win64')
+  call CreateDir($HOME . "/vimfiles/swap")
+  call CreateDir($HOME . "/vimfiles/backup")
+  call CreateDir($HOME . "/vimfiles/undo")
   set directory=$HOME\vimfiles\swap\\,$TEMP\\
   set backupdir=$HOME\vimfiles\backup\\,$TEMP\\
   set undodir=$HOME\vimfiles\undo\\,$TEMP\\
 else
-  set directory=~/.vim/swap//,/tmp//
+  call CreateDir($HOME . "/.vim/swap")
+  call CreateDir($HOME . "/.vim/backup")
+  call CreateDir($HOME . "/.vim/undo")
+  set directory=$HOME/.vim/swap//,/tmp//
   set backupdir=~/.vim/backup//,/tmp//
   set undodir=~/.vim/undo//,/tmp//
 endif
@@ -207,31 +249,3 @@ autocmd FileType text,plaintex,bib setlocal wrap linebreak nolist
 
 autocmd FileType html,yaml,xml,sshconfig,vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
-"------------------------------------------------"
-" Commands and Functions
-"------------------------------------------------"
-" Use the :Wrap command to soft wrap text
-command! -nargs=* Wrap set wrap linebreak nolist
-
-function! StripTrailingWhitespace()
-  " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l=line(".")
-  let c=col(".")
-  " do the business:
-  %s/\s\+$//e
-  " clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
-endfunction
-
-" Goto definition of tag under the cursor ignoring case
-function! MatchCaseTag()
-  let ic=&ic
-  set noic
-  try
-    exe 'tjump ' . expand('<cword>')
-  finally
-     let &ic=ic
-  endtry
-endfunction
