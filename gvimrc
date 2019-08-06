@@ -1,20 +1,24 @@
 "------------------------------------------------"
 " Interface
 "------------------------------------------------"
-" Windows dimensions
+" No noise!
+set visualbell
+set t_vb=
+
+" Windows dimensions.
 set lines=47
 set columns=110
 
-" Disable toolbar
+" Disable toolbar.
 set guioptions-=T
 
-" Enable mouse
+" Enable mouse.
 set mouse=a
 
-" Hide mouse cursor when typing
+" Hide mouse cursor when typing.
 set mousehide
 
-" Right mouse button pops up menu
+" Right mouse button pops up menu.
 set mousemodel=popup
 
 "------------------------------------------------"

@@ -1,64 +1,64 @@
 "------------------------------------------------"
 " Plugins
 "------------------------------------------------"
-" Only load plugins if we have curl and git installed
+" Only load plugins if we have curl and git installed.
 if executable('curl') && executable('git')
 
-  " Install vim-plug if we don't already have it.
-  if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-  endif
+    " Install vim-plug if we don't already have it.
+    if empty(glob('~/.vim/autoload/plug.vim'))
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
 
-  " Start loading plugins.
-  call plug#begin('~/.vim/plugged')
+    " Start loading plugins.
+    call plug#begin('~/.vim/plugged')
 
-  "------------------------------------------------"
-  " The colours, children! Look at the colours!
-  "------------------------------------------------"
-  Plug 'KabbAmine/yowish.vim'
-    let g:yowish = {}
-    let g:yowish.spell_bad_color='red'
+    "------------------------------------------------"
+    " The colours, children! Look at the colours!
+    "------------------------------------------------"
+    Plug 'KabbAmine/yowish.vim'
+        let g:yowish = {}
+        let g:yowish.spell_bad_color='red'
 
-  "------------------------------------------------"
-  " Additional Syntax
-  "------------------------------------------------"
-  Plug 'pearofducks/ansible-vim'
-  Plug 'pallets/jinja'
+    "------------------------------------------------"
+    " Additional Syntax
+    "------------------------------------------------"
+    Plug 'pearofducks/ansible-vim'
+    Plug 'pallets/jinja'
 
-  "------------------------------------------------"
-  " General Editing
-  "------------------------------------------------"
-  Plug 'jeetsukumaran/vim-buffergator'
-    let g:buffergator_autoexpand_on_split=0
-    let g:buffergator_viewport_split_policy='B'
-    let g:buffergator_split_size=5
-    let g:buffergator_sort_regime='basename'
-    let g:buffergator_display_regime='basename'
-    nmap <silent> <leader>b :BuffergatorToggle<cr>
+    "------------------------------------------------"
+    " General Editing
+    "------------------------------------------------"
+    Plug 'jeetsukumaran/vim-buffergator'
+        let g:buffergator_autoexpand_on_split=0
+        let g:buffergator_viewport_split_policy='B'
+        let g:buffergator_split_size=5
+        let g:buffergator_sort_regime='basename'
+        let g:buffergator_display_regime='basename'
+        nmap <silent> <leader>b :BuffergatorToggle<cr>
 
-  Plug 'bling/vim-airline'
-    let g:airline_powerline_fonts=1
-    set laststatus=2
+    Plug 'bling/vim-airline'
+        let g:airline_powerline_fonts=1
+        set laststatus=2
 
-  Plug 'mtth/scratch.vim'
+    Plug 'mtth/scratch.vim'
 
-  "------------------------------------------------"
-  " General Programming
-  "------------------------------------------------"
-  Plug 'nathanaelkane/vim-indent-guides'
-    let g:indent_guides_auto_colors=1
-    let g:indent_guides_start_level=2
-    let g:indent_guides_guide_size=1
-    let g:indent_guides_enable_on_vim_startup=0
-    autocmd FileType python,xml : autocmd BufEnter <buffer> IndentGuidesEnable
+    "------------------------------------------------"
+    " General Programming
+    "------------------------------------------------"
+    Plug 'nathanaelkane/vim-indent-guides'
+        let g:indent_guides_auto_colors=1
+        let g:indent_guides_start_level=2
+        let g:indent_guides_guide_size=1
+        let g:indent_guides_enable_on_vim_startup=0
+        autocmd FileType python,xml : autocmd BufEnter <buffer> IndentGuidesEnable
 
-  Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-abolish'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-abolish'
 
-  " End loading plugins
-  call plug#end()
+    " End loading plugins.
+    call plug#end()
 else
-  silent !echo 'curl and/or git not found, plugins not loaded.'
+    silent !echo 'curl and/or git not found, plugins not loaded.'
 endif
