@@ -167,7 +167,10 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-" If we're in a real console use desert.
+" Use and dark background
+set background=dark
+
+" If we're in a real console use desert
 if &term == 'linux'
     color desert
 else
@@ -179,10 +182,7 @@ else
     endtry
 endif
 
-" Use and dark background.
-set background=dark
-
-" Set utf8 as standard encoding.
+" Set utf8 as standard encoding
 set encoding=utf8
 
 " Use Unix as the standard file type.
