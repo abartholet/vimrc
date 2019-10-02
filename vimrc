@@ -97,7 +97,7 @@ set t_vb=
 " Disable mouse when using a terminal.
 set mouse=
 
-" Don't backspace over eol.
+" Don't backspace over EOL.
 set backspace=start,indent
 
 " Show row and column position.
@@ -139,13 +139,20 @@ set showmatch
 " Extra margin when folding.
 set foldcolumn=1
 
+" Text width for wrapping comments.
+set textwidth=72
+
+" Format options.
+set formatoptions=crnqj
+
+
 " Avoids 'hit enter' prompts.
 set shortmess+=filmnrxoOtT
 
 " Enable wild menu.
 set wildmenu
 
-" Complete till longest common string and list all matches.
+" Complete until longest common string and list all matches.
 set wildmode=longest,list
 
 " Ignore compiled files.
