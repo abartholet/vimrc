@@ -38,7 +38,7 @@ if executable('curl') && executable('git')
         let g:buffergator_display_regime='basename'
         nmap <silent> <leader>b :BuffergatorToggle<cr>
 
-    Plug 'bling/vim-airline'
+    Plug 'vim-airline/vim-airline'
         let g:airline_powerline_fonts=1
         set laststatus=2
         let g:airline#extensions#whitespace#enabled = 1
