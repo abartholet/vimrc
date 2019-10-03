@@ -8,7 +8,9 @@ set nocompatible
 " Plugins
 "------------------------------------------------"
 " Load the plugins from a separate file.
-source ~/.vimrc.plugins
+if filereadable(expand("~/.vimrc.plugins"))
+    source ~/.vimrc.plugins
+endif
 
 "------------------------------------------------"
 " Commands and Functions
