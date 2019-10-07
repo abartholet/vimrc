@@ -234,9 +234,9 @@ set softtabstop=4
 " Copy indent from current line to next line.
 set autoindent
 
-" Highlight problematic whitespace.
+" Highlight tabs and trailing whitespace.
 set list
-set listchars=tab:,.,trail:.,extends:#,nbsp:.
+set listchars=tab:>.,trail:.,extends:\#,nbsp:.
 
 "------------------------------------------------"
 " Key (re)Mappings
