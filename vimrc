@@ -15,9 +15,6 @@ endif
 "------------------------------------------------"
 " Commands and Functions
 "------------------------------------------------"
-" Use the :Wrap command to soft wrap text
-command! -nargs=* Wrap set wrap linebreak nolist
-
 " Remove all trailing whitespace in the file.
 function! StripTrailingWhitespace()
     " Preparation: save last search, and cursor position.
@@ -50,7 +47,7 @@ function! CreateDir(dir)
 endfunction
 
 " Toggle between wrapped lines.
-function ToggleWrap()
+function! ToggleWrap()
   if &wrap
     echo "Wrap OFF"
     setlocal nowrap
@@ -168,18 +165,16 @@ endif
 "------------------------------------------------"
 " Colours and Fonts
 "------------------------------------------------"
-"Enable syntax highlighting.
+" Enable syntax highlighting.
 syntax enable
 
-" Enable 256 colors palette in Gnome Terminal.
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
+" Enable support for true color terminal.
+set termguicolors
 
-" Use and dark background
+" Use and dark background.
 set background=dark
 
-" If we're in a real console use desert
+" If we're in a real console use desert.
 if &term == 'linux'
     color desert
 else
