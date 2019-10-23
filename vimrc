@@ -168,9 +168,6 @@ endif
 " Enable syntax highlighting.
 syntax enable
 
-" Enable support for true color terminal.
-set termguicolors
-
 " Use and dark background.
 set background=dark
 
@@ -260,7 +257,7 @@ nmap <leader>ss z=
 nnoremap Y y$
 
 " Remove the Windows ^M - when the encodings gets messed up.
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " Match case insensitive tags.
 nnoremap <silent> <c-]> :call MatchCaseTag()<CR>
