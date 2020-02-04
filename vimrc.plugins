@@ -59,6 +59,14 @@ if executable('curl') && executable('git')
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-abolish'
 
+    " Only install if ctags is installed.
+    if executable('ctags')
+        Plug 'majutsushi/tagbar'
+        let g:tagbar_autopreview = 1
+        nmap <F8> :TagbarToggle<CR>
+        " nmap <silent> <leader>l :TagbarToggle<CR>
+    endif
+
     " End loading plugins.
     call plug#end()
 else
