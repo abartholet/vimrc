@@ -114,9 +114,6 @@ set showmode
 " Don't wrap lines.
 set nowrap
 
-" Minimum window height.
-set winminheight=0
-
 " Hide buffer when it is abandoned.
 set hidden
 
@@ -143,7 +140,6 @@ set textwidth=72
 
 " Format options.
 set formatoptions=crnqj
-
 
 " Avoids 'hit enter' prompts.
 set shortmess+=filmnrxoOtT

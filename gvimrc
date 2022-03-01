@@ -5,6 +5,9 @@
 set visualbell
 set t_vb=
 
+" Minimum window height.
+set winminheight=0
+
 " Windows dimensions.
 set lines=47
 set columns=110
