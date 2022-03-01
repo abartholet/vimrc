@@ -4,6 +4,9 @@
 " Must be first line.
 set nocompatible
 
+" Map the leader key here so it works with plugins.
+let mapleader=','
+
 "------------------------------------------------"
 " Plugins
 "------------------------------------------------"
@@ -229,8 +232,6 @@ set listchars=tab:>.,trail:.,extends:\#,nbsp:.
 "------------------------------------------------"
 " Key (re)Mappings
 "------------------------------------------------"
-let mapleader=','
-
 "Pressing ,sc will toggle and untoggle spell checking.
 nmap <leader>sc :setlocal spell!<cr>
 
@@ -259,19 +260,19 @@ noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 nnoremap <silent> <c-]> :call MatchCaseTag()<CR>
 
 " Remove Trailing whitespace.
-nmap <silent> <leader>t :call StripTrailingWhitespace()<CR>
+nmap <silent> <leader>s :call StripTrailingWhitespace()<CR>
 
 " Toggle wrapped lines
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 
 "------------------------------------------------"
-"File Types
+"Auto Commands
 "------------------------------------------------"
 " Detect the filetype before saving.
 autocmd BufWritePre <buffer> filetype detect
 
 " Remove trailing whitespace.
-autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml,vim autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml,vim autocmd BufWritePre <buffer> :call StripTrailingWhitespace()
 
 " Column markings.
 autocmd FileType python let &colorcolumn=join(range(81,999),",")

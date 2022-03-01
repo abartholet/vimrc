@@ -36,7 +36,6 @@ if executable('curl') && executable('git')
         let g:buffergator_split_size=5
         let g:buffergator_sort_regime='basename'
         let g:buffergator_display_regime='basename'
-        nmap <silent> <leader>b :BuffergatorToggle<cr>
 
     Plug 'vim-airline/vim-airline'
         let g:airline_powerline_fonts=1
@@ -63,8 +62,7 @@ if executable('curl') && executable('git')
     if executable('ctags')
         Plug 'majutsushi/tagbar'
         let g:tagbar_autopreview = 1
-        nmap <F8> :TagbarToggle<CR>
-        " nmap <silent> <leader>l :TagbarToggle<CR>
+        nmap <silent> <leader>c :TagbarToggle<CR>
     endif
 
     " End loading plugins.
