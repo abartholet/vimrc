@@ -286,3 +286,6 @@ autocmd FileType text,plaintex,bib setlocal wrap linebreak nolist
 
 " Set tabs to 2 spaces for files that have lots of nested indenting.
 autocmd FileType html,yaml,xml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+" Text width.
+autocmd FileType md setlocal textwidth=0
