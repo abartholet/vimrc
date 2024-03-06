@@ -31,6 +31,23 @@ function! StripTrailingWhitespace()
     call cursor(l, c)
 endfunction
 
+" Add an end of line character to the end of the file.
+function! AddEOL()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l=line(".")
+    let c=col(".")
+    " Go to the last line
+    normal G
+    " Remove end-of-line characters
+    %s/\n\+\%$//e
+    " Add a single end of line character.
+    $normal! o
+    " clean up: restore previous search history, and cursor position.
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
 " Goto definition of tag under the cursor ignoring case.
 function! MatchCaseTag()
     let ic=&ic
@@ -274,6 +291,9 @@ autocmd BufWritePre <buffer> filetype detect
 " Remove trailing whitespace.
 autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml,vim autocmd BufWritePre <buffer> :call StripTrailingWhitespace()
 
+" Add and EOL character to the end of the file.
+autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml,vim autocmd BufWritePre <buffer> :call AddEOL()
+
 " Column markings.
 autocmd FileType python let &colorcolumn=join(range(81,999),",")
 autocmd FileType python let &colorcolumn="80,".join(range(101,999),",")
@@ -289,3 +309,4 @@ autocmd FileType html,yaml,xml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Text width.
 autocmd FileType md setlocal textwidth=0
+
