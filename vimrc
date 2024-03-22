@@ -187,8 +187,12 @@ syntax enable
 " Use and dark background.
 set background=dark
 
-" If we're in a real console use desert.
+" Set the colour scheme based on the terminal
 if &term == 'linux'
+    " If we're in a real console use desert.
+    color desert
+elseif match(&term, 'screen.*') != -1
+    " If we're in a screen session use desert.
     color desert
 else
     " Try using yowish or fallback to desert.
