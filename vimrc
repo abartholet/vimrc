@@ -187,15 +187,15 @@ syntax enable
 " Use and dark background.
 set background=dark
 
-" If we're in a real console use desert.
+" If we're in a real console use koehler.
 if &term == 'linux'
-    color desert
+    color koehler
 else
-    " Try using yowish or fallback to desert.
+    " Try using yowish or fallback to koehler.
     try
         color yowish
     catch /^Vim\%((\a\+)\)\=:E185/
-        color desert
+        color koehler
     endtry
 endif
 
