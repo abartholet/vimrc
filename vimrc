@@ -189,6 +189,10 @@ set background=dark
 
 " If we're in a real console use koehler.
 if &term == 'linux'
+    " If we're in a real console, use koehler.
+    color koehler
+elseif match(&term, 'screen.*') != -1
+    " If we're in a screen session, use koehler.
     color koehler
 else
     " Try using yowish or fallback to koehler.
